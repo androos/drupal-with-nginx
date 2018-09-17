@@ -1,5 +1,9 @@
 # -*- mode: nginx; mode: flyspell-prog;  ispell-local-dictionary: "american" -*-
 ### fastcgi parameters.
+
+fastcgi_param HTTP_IF_NONE_MATCH $http_if_none_match;
+fastcgi_param HTTP_IF_MODIFIED_SINCE $http_if_modified_since;
+
 fastcgi_param QUERY_STRING $query_string;
 fastcgi_param REQUEST_METHOD $request_method;
 fastcgi_param CONTENT_TYPE $content_type;
@@ -28,8 +32,6 @@ fastcgi_param REDIRECT_STATUS 200;
 ## http://nginx.org/en/CHANGES. If using a version that doesn't
 ## support this comment out the line below.
 fastcgi_param HTTPS $fastcgi_https if_not_empty;
-## For Nginx versions below 1.1.11 uncomment the line below after commenting out the above.
-#fastcgi_param HTTPS $fastcgi_https;
 
 ## Fix HTTPoxy vulnerability https://httpoxy.org/#mitigate-nginx.
 fastcgi_param HTTP_PROXY '';
